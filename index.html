@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shopee OAuth Callback</title>
+</head>
+<body>
+<h1>Shopee API OAuth Callback Endpoint</h1>
+<p>This page receives redirect parameters from Shopee Open Platform.</p>
+<p>If you see this page after authorizing a shop, please copy the full URL from your browser's address bar.</p>
+<script>
+  // 認可後にURLパラメータを画面に表示する補助スクリプト
+  const params = new URLSearchParams(window.location.search);
+  if (params.toString()) {
+    const div = document.createElement('pre');
+    div.style.background = '#f0f0f0';
+    div.style.padding = '12px';
+    div.style.fontSize = '14px';
+    let text = 'Received parameters:\n';
+    for (const [k, v] of params) {
+      text += `  ${k} = ${v}\n`;
+    }
+    div.textContent = text;
+    document.body.appendChild(div);
+  }
+</script>
+</body>
+</html>
